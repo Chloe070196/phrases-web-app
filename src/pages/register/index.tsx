@@ -4,7 +4,7 @@ import { RegistrationForm } from "../../components/registration-form"
 function Register() {
     return (
         <section className="centered-section-position medium-section-dimensions section-colors">
-            <FormHeader pageLinkText={"I already have an account"} formType={'Sign up'} message={"Don't have an account yet? Register here!"}/>
+            <FormHeader pathTo={"/login"} linkText={"I already have an account"} formType={'Sign up'} message={"Don't have an account yet? Register here!"}/>
             <RegistrationForm />
         </section>
     )
