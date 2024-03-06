@@ -1,0 +1,17 @@
+* {
+  font-family:'Trebuchet MS','Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+}
+
+body {
+    background-color: var(--background);
+    background: radial-gradient(
+      closest-corner at 70vw 50vh,
+      rgba(247, 247, 241, 0.13),
+      rgba(239, 236, 209, 0.203),
+      rgba(179, 213, 233, 0.301),
+      rgba(183, 220, 241, 0.61),
+      rgba(155, 196, 219, 0.829)
+    );
+    background-attachment: fixed;
+}
+
