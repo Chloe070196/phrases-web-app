@@ -8,8 +8,19 @@
 :root {
   --unit: 4px;
   --double-unit: 8px;
+  --four-units: 16px;
   --light-transparent: rgba(255, 253, 253, 0.281);
+  --light-semi-transparent: rgba(255, 253, 253, 0.582);
   --dark-transparent: rgba(54, 54, 54, 0.281);
+  --dark-semi-transparent: rgba(36, 36, 36, 0.507);
+  --dark-slightly-transparent: rgba(36, 36, 36, 0.75);
+  --grey: rgba(107, 107, 107, 0.945);
+  --darkblue-semi-transparent: rgba(14, 14, 104, 0.63);
+  --darkblue: rgba(14, 14, 104);
+}
+
+*:hover{
+  transition-duration: 0.5s;
 }
 
 .centered-section-position {
@@ -52,15 +63,17 @@
   place-items: center;
 }
 
-label {
-  text-align: start;
-}
 input {
   display: block;
   margin: var(--unit) 0;
   background-color: white;
   border: 1px solid white;
-  padding: var(--unit);
+  padding: var(--double-unit);
+  width: 240px;
+}
+
+::placeholder {
+  color: var(--dark-semi-transparent);
 }
 
 .submit-button {
@@ -72,8 +85,12 @@ input {
   font-weight: bold;
   color: white;
   position: absolute;
-  bottom: var(--double-unit);
-  right: var(--double-unit);
+  bottom: var(--four-units);
+  right: var(--four-units);
+}
+.submit-button:hover {
+  padding-right: var(--four-units);
+  background: linear-gradient(0.25turn, var(--dark-transparent), var(--darkblue-semi-transparent), var(--darkblue));
 }
 .form-header {
   display: grid;
@@ -84,8 +101,24 @@ input {
   align-self: start;
   width: fit-content;
 }
+.link-to-form {
+  position: absolute;
+  top: var(--four-units);
+  left: var(--four-units);
+}
 
 strong, p, a, button, label {
   font-family: Arial, Helvetica, sans-serif;
-  color: rgb(79, 89, 95);
+  color: var(--grey);
+}
+
+strong {
+  color: var(--darkblue-semi-transparent);
+  padding: var(--unit);
+  border-radius: var(--unit);
+}
+
+strong:hover {
+  color: var(--darkblue);
+  background: linear-gradient(0.25turn, var(--light-transparent), var(--light-semi-transparent), white);
 }
