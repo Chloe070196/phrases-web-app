@@ -1,6 +1,6 @@
 const rootUrl = import.meta.env.VITE_API_URL
 
-const request = async (endpoint: string, method: string, data: DataTransfer): Promise<Response> => {
+const request = async (endpoint: string, method: string, data: object): Promise<Response> => {
     const url = rootUrl + endpoint
     const options = {
         method: method, 
@@ -12,16 +12,21 @@ const request = async (endpoint: string, method: string, data: DataTransfer): Pr
     return await fetch(url, options)
 }
 
-const post = async (endpoint: string, data: DataTransfer ): Promise<Response> => {
+const post = async (endpoint: string, data: object ): Promise<Response> => {
     const method = "POST"
     return await request(endpoint, method, data)
 } 
 
-
-const registerNewUser = async (data: DataTransfer): Promise<Response> => {
+const registerNewUser = async (data: object): Promise<Response> => {
     const response = await post('/register', data)
     const responseData = await response.json()
     return responseData
 }
 
-export { registerNewUser }
+const logIn = async (data: object): Promise<Response> => {
+    const response = await post('/login', data)
+    const responseData = await response.json()
+    return responseData
+}
+
+export { registerNewUser, logIn }
