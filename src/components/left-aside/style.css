@@ -1,0 +1,33 @@
+aside {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: calc( 100vh - var(--four-units) * 2);
+	width: 128px;
+	padding: var(--four-units);
+	border-right: 1px solid white;
+	background: linear-gradient(0.25turn, rgba(255, 255, 255, 0), var(--light-transparent), var(--light-semi-transparent));
+}
+
+.page-link:hover {
+  padding-right: 44px;
+  background: linear-gradient(
+    0.25turn,
+    var(--dark-transparent),
+    var(--darkblue-semi-transparent),
+    var(--darkblue)
+  );
+  color: white;
+}
+
+.page-link {
+	display: grid;
+  text-align: start;
+  text-decoration: none;
+	place-self: start;
+	width: 84px;
+}
+
+.page-link > h3 {
+	padding-left: var(--four-units)
+}
