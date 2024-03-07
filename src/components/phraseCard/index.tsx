@@ -1,4 +1,4 @@
-import type { PhraseType } from "../../types/types"
+import type { PhraseType } from "../../types"
 
 function PhraseCard({ phrase }: { phrase: PhraseType }) {
     return (

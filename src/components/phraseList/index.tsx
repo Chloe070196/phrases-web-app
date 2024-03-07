@@ -1,4 +1,4 @@
-import { PhraseType } from "../../types/types"
+import { PhraseType } from "../../types"
 import { PhraseCard } from "../phraseCard"
 
 function PhraseList({ phraseList } : { phraseList: Array<PhraseType>}) {
