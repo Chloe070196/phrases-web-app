@@ -9,11 +9,7 @@ const request = async (endpoint: string, method: string, data: object): Promise<
         },
         body: JSON.stringify(data)
     }  
-    try {
         return await fetch(url, options)
-    } catch (err) {
-        throw new Error(err)
-    }
 }
 
 const post = async (endpoint: string, data: object ): Promise<Response> => {
