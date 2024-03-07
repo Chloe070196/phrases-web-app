@@ -36,8 +36,19 @@ aside {
   text-decoration: none;
   place-self: start;
   width: 84px;
+  color: var(--darkblue);
 }
 
 .page-link > h3 {
   padding-left: var(--four-units);
+}
+
+nav {
+  width: 128px;
+  background: linear-gradient(
+    0.25turn,
+    rgba(255, 255, 255, 0),
+    var(--light-transparent),
+    var(--light-semi-transparent)
+  );
 }
