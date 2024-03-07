@@ -9,7 +9,11 @@ const request = async (endpoint: string, method: string, data: object): Promise<
         },
         body: JSON.stringify(data)
     }  
-    return await fetch(url, options)
+    try {
+        return await fetch(url, options)
+    } catch (err) {
+        throw new Error(err)
+    }
 }
 
 const post = async (endpoint: string, data: object ): Promise<Response> => {
@@ -23,7 +27,7 @@ const registerNewUser = async (data: object): Promise<Response> => {
     return responseData
 }
 
-const logIn = async (data: object): Promise<Response> => {
+const logIn = async (data: object): Promise<{username: string, token: string}> => {
     const response = await post('/login', data)
     const responseData = await response.json()
     return responseData
