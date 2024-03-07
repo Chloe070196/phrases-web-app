@@ -1,7 +1,8 @@
-import { LeftAside } from "../../components/left-aside"
+import { useContext, useEffect } from "react"
 import { PhraseList } from "../../components/phraseList"
+import { AuthContext } from "../../components/context/auth"
+import { useNavigate } from "react-router-dom"
 
-const username = 'mockusername'
 const daysNum = 3
 const phrasesNum = 34
 
@@ -24,13 +25,22 @@ const mockLearntPhraseList = [
     },
 ]
 
+function HomePage() {
+    const context = useContext(AuthContext)
+    console.log('context', context)
+    const navigate = useNavigate()
 
-function Home() {
+    const redirectToLogin = () => {
+        if (!context.user?.token){
+            navigate("/login")
+        }
+    }
+    useEffect(redirectToLogin)
+
     return (
         <>
-            <LeftAside />
             <main>
-                <h1>Welcome, {username}!</h1>
+                <h1>Welcome, {context.user?.username}!</h1>
                 <h3>Last practice sessions: <strong>{daysNum}</strong> days ago</h3>
                 <h3>Phrases learnt: <strong>{phrasesNum}</strong></h3>
                 <PhraseList phraseList={mockLearntPhraseList}/>
@@ -38,4 +48,4 @@ function Home() {
         </>
     )
 }
-export { Home }
+export { HomePage }
