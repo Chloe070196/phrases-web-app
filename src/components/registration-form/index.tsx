@@ -1,5 +1,6 @@
 import { ChangeEvent, FormEvent, useState } from "react"
 import { registerNewUser } from "../../service/apiClient"
+import { useNavigate } from "react-router-dom"
 const INITIAL_FORM = {
     username: "",
     email: "",
@@ -9,6 +10,7 @@ const INITIAL_FORM = {
 
 function RegistrationForm() {
     const [form, setForm]= useState<{username: string, email: string, password: string, repeatedPassword: string} >(INITIAL_FORM)
+    const navigate = useNavigate()
     const updateForm = (e: ChangeEvent<HTMLInputElement>) => {
         setForm({...form, [e?.target?.name]: e?.target?.value })
     }
@@ -23,9 +25,10 @@ function RegistrationForm() {
             email: form.email
         }
         const response = await registerNewUser(newUser)
-        console.log(response)
+        navigate("/login")
         return response
     }
+    useNavigate()
 
     return (
         <form className="grid-rows-four" onSubmit={handleRegister}>
