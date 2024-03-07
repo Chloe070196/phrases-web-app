@@ -3,6 +3,7 @@
 }
 
 body {
+    position: relative;
     background-color: var(--background);
     background: radial-gradient(
       closest-corner at 70vw 50vh,
