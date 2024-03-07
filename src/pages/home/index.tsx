@@ -27,7 +27,6 @@ const mockLearntPhraseList = [
 
 function HomePage() {
     const context = useContext(AuthContext)
-    console.log('context', context)
     const navigate = useNavigate()
 
     const redirectToLogin = () => {
