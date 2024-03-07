@@ -17,17 +17,16 @@
   --darkblue: rgba(14, 14, 104);
 }
 
-*:hover{
+*:hover {
   transition-duration: 0.5s;
 }
 
 main {
-  position: fixed; 
+  position: fixed;
   left: 200px;
   top: 0;
   width: calc(100vw - 160px);
   height: 100vh;
-  padding: var(--four-units);
 }
 
 .centered-section-position {
@@ -42,12 +41,14 @@ main {
   width: 600px;
   height: 500px;
   border-radius: 12px;
+  padding: var(--double-unit);
 }
 
 .small-section-dimensions {
   width: 400px;
   height: 250px;
   border-radius: 12px;
+  padding: var(--double-unit);
 }
 
 .section-colors {
@@ -97,7 +98,12 @@ input {
 }
 .submit-button:hover {
   padding-right: var(--four-units);
-  background: linear-gradient(0.25turn, var(--dark-transparent), var(--darkblue-semi-transparent), var(--darkblue));
+  background: linear-gradient(
+    0.25turn,
+    var(--dark-transparent),
+    var(--darkblue-semi-transparent),
+    var(--darkblue)
+  );
 }
 header {
   display: grid;
@@ -113,7 +119,11 @@ header {
   top: var(--four-units);
   left: var(--four-units);
 }
-strong, p, a, button, label {
+strong,
+p,
+a,
+button,
+label {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--grey);
 }
@@ -126,5 +136,50 @@ strong {
 
 strong:hover {
   color: var(--darkblue);
-  background: linear-gradient(0.25turn, var(--light-transparent), var(--light-semi-transparent), white);
+  background: linear-gradient(
+    0.25turn,
+    var(--light-transparent),
+    var(--light-semi-transparent),
+    white
+  );
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+/* SCROLL BEHAVIOR AND STYLING */
+
+.scrollable {
+  height: fit-content;
+}
+
+.scrollable-wrapper {
+  height: 400px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  
+  scrollbar-width: none;
+  padding: var(--double-unit);
+  margin-top: var(--four-units);
+}
+
+.section-top-blur-wrapper {
+  position: relative;
+}
+
+.scrollable-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.blurred-element {
+  backdrop-filter: blur(3px);
+  height: 60px;
+  width: 100%;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
 }

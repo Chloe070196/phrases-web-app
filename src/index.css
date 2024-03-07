@@ -14,5 +14,6 @@ body {
       rgba(155, 196, 219, 0.829)
     );
     background-attachment: fixed;
+    margin: 0;
 }
 
