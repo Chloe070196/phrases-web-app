@@ -1,12 +1,17 @@
 aside {
-	position: fixed;
-	left: 0;
-	top: 0;
-	height: calc( 100vh - var(--four-units) * 2);
-	width: 128px;
-	padding: var(--four-units);
-	border-right: 1px solid white;
-	background: linear-gradient(0.25turn, rgba(255, 255, 255, 0), var(--light-transparent), var(--light-semi-transparent));
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: calc(100vh - var(--four-units) * 2);
+  width: 128px;
+  padding: var(--four-units);
+  border-right: 1px solid white;
+  background: linear-gradient(
+    0.25turn,
+    rgba(255, 255, 255, 0),
+    var(--light-transparent),
+    var(--light-semi-transparent)
+  );
 }
 
 .page-link:hover {
@@ -19,15 +24,20 @@ aside {
   );
   color: white;
 }
+.page-link:focus {
+  padding-right: 44px;
+  background-color: var(--darkblue);
+  color: white;
+}
 
 .page-link {
-	display: grid;
+  display: grid;
   text-align: start;
   text-decoration: none;
-	place-self: start;
-	width: 84px;
+  place-self: start;
+  width: 84px;
 }
 
 .page-link > h3 {
-	padding-left: var(--four-units)
+  padding-left: var(--four-units);
 }
