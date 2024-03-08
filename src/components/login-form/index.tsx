@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react"
 import { logIn } from "../../service/apiClient"
 import { useNavigate } from "react-router-dom"
-import { AuthContext} from "../context/auth"
+import { AuthContext} from "../../context/auth"
 const INITIAL_FORM = {
     email: "",
     password: "",

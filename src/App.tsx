@@ -8,7 +8,7 @@ import { LearnPage } from './pages/learn'
 import { RevisePage } from './pages/revise'
 import { Settings } from './pages/settings'
 import { LeftAside } from './components/left-aside'
-import { AuthProvider} from './components/context/auth'
+import { AuthProvider} from './context/auth'
 
 function App() {
   return (

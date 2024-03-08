@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
 import { PhraseList } from "../../components/phraseList"
-import { AuthContext } from "../../components/context/auth"
+import { AuthContext } from "../../context/auth"
 import { useNavigate } from "react-router-dom"
 
 const daysNum = 3
