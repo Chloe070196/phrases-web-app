@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react"
 import { PhraseList } from "../../components/phraseList"
 import { AuthContext } from "../../context/auth"
 import { useNavigate } from "react-router-dom"
+import { useAuth } from "../../hooks/useAuth"
 
 const daysNum = 3
 const phrasesNum = 34
@@ -27,10 +28,12 @@ const mockLearntPhraseList = [
 
 function HomePage() {
     const context = useContext(AuthContext)
+    const { checkLogIn } = useAuth()
     const navigate = useNavigate()
 
     const redirectToLogin = () => {
-        if (!context.user?.token){
+        const isLoggedIn = checkLogIn()
+        if (!isLoggedIn) {
             navigate("/login")
         }
     }
@@ -42,7 +45,7 @@ function HomePage() {
                 <h1>Welcome, {context.user?.username}!</h1>
                 <h3>Last practice sessions: <strong>{daysNum}</strong> days ago</h3>
                 <h3>Phrases learnt: <strong>{phrasesNum}</strong></h3>
-                <PhraseList phraseList={mockLearntPhraseList}/>
+                <PhraseList phraseList={mockLearntPhraseList} />
             </main>
         </>
     )

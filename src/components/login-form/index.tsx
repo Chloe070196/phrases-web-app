@@ -1,7 +1,8 @@
-import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react"
+import { ChangeEvent, FormEvent, useState } from "react"
 import { logIn } from "../../service/apiClient"
 import { useNavigate } from "react-router-dom"
-import { AuthContext} from "../../context/auth"
+import { useAuth } from "../../hooks/useAuth"
+
 const INITIAL_FORM = {
     email: "",
     password: "",
@@ -10,7 +11,7 @@ const INITIAL_FORM = {
 function LogInForm() {
     const [form, setForm] = useState<{ email: string, password: string }>(INITIAL_FORM)
     const navigate = useNavigate()
-    const { user, setUser } = useContext(AuthContext)
+    const {onLogIn} = useAuth()
 
     const updateForm = (e: ChangeEvent<HTMLInputElement>) => {
         setForm({ ...form, [e?.target?.name]: e?.target?.value })
@@ -27,14 +28,10 @@ function LogInForm() {
             alert('incorrect username/password')
             return
         }
-        setUser({ username: response?.username, token: response?.token })
+        onLogIn({ username: response?.username, token: response?.token })
         navigate("/")
         return response
     }
-
-    useEffect(() => {
-        console.log('set', user);
-    }, [user]);
 
     return (
         <form className="grid-rows-four" onSubmit={handleLogIn}>

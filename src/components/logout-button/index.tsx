@@ -1,14 +1,10 @@
-import { useContext } from "react"
-import { AuthContext } from "../../context/auth"
+import { useAuth } from "../../hooks/useAuth"
 
 function LogOutButton() {
-    const {setUser} = useContext(AuthContext)
-    const handleLogOut = () => {
-        setUser(null)
-    }
+    const {onLogOut} = useAuth()
     return(
         <>
-            <button onClick={handleLogOut}>Log out</button>
+            <button onClick={onLogOut}>Log out</button>
         </>
     )
 }
