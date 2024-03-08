@@ -1,14 +1,14 @@
-type PhraseType = { content: string; meaning: string; example: string };
+type PhraseType = { content: string; meaning: string; example: string, shortExample?: string };
 
-type UserInContextType = {
+type UserType = {
   id?: string;
   username?: string;
   token?: string;
 };
 
 type AuthContextType = {
-  user: UserInContextType | null;
-  setUser: (user: UserInContextType | null) => void;
+  user: UserType | null;
+  setUser: (user: UserType | null) => void;
 };
 
-export type { PhraseType, UserInContextType, AuthContextType };
+export type { PhraseType, UserType, AuthContextType };

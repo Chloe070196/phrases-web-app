@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/auth";
-import { UserInContextType } from "../types";
+import { UserType } from "../types";
 
 const useAuth = () => {
   const { setUser } = useContext(AuthContext);
 
-  const onLogIn = (user: UserInContextType) => {
+  const onLogIn = (user: UserType) => {
     if (user.token) {
       localStorage.setItem("jwt", user?.token);
       setUser(user);
