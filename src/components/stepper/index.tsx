@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 import { SetUpQuiz } from "../setup-quiz"
+import { QuizQuestion } from "../quiz-question"
+import { PhraseType } from "../../types"
 
 function Stepper() {
-    const [currentStep, setCurrentStep ] = useState<string | null>("0")
-   
+    const [currentStep, setCurrentStep] = useState<string | null>("0")
+    const [newPhrases, setNewPhrases] = useState<Array<PhraseType> | null>(null)
+
     const handleStepCompletion = async () => {
         const newStep = Number(currentStep) + 1
         localStorage.setItem("currentQuizStep", `${newStep}`)
@@ -17,6 +20,11 @@ function Stepper() {
 
     const handlePageReload = () => {
         const storedStep = localStorage.getItem("currentQuizStep")
+        if (!storedStep) {
+            setCurrentStep("0")
+            localStorage.setItem("currentQuizStep", "0")
+            return
+        }
         setCurrentStep(storedStep)
     }
 
@@ -25,22 +33,24 @@ function Stepper() {
     if (currentStep === "0") {
         return (
             <>
-                <SetUpQuiz handleStepCompletion={handleStepCompletion}/>
+                <SetUpQuiz setNewPhrases={setNewPhrases} handleStepCompletion={handleStepCompletion} />
             </>
         )
     }
 
-    if (currentStep === "1") {
+    if (newPhrases && Number(currentStep) > 0 && Number(currentStep) < newPhrases?.length) {
+        const i = Number(currentStep) - 1
         return (
             <>
-                <p>You made it to step 1</p>
-                <button onClick={resetQuiz}>Start again</button>
+                <QuizQuestion newPhrase={newPhrases[i]} />
+                <button onClick={handleStepCompletion}>next</button>
+                <button onClick={resetQuiz}>re-start</button>
             </>
         )
     }
     return (
         <>
-        
+            <button onClick={resetQuiz}>exit</button>
         </>
     )
 }

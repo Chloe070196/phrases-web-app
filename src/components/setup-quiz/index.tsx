@@ -1,12 +1,11 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react"
-import { PhraseType } from "../../types"
+import { ChangeEvent, FormEvent, useState } from "react"
 import { getPhrases } from "../../service/apiClient"
+import { PhraseType } from "../../types"
 
 
 
-function SetUpQuiz({ handleStepCompletion }: { handleStepCompletion: () => void }) {
+function SetUpQuiz({ handleStepCompletion, setNewPhrases }: { handleStepCompletion: () => void, setNewPhrases: React.Dispatch<React.SetStateAction<Array<PhraseType> | null>> }) {
     const [phrasesNum, setPhrasesNum] = useState<number | null>(null)
-    const [newPhrases, setNewPhrases] = useState<Array<PhraseType> | null>(null)
 
     const handleStart = async (e: FormEvent<HTMLFormElement>) => {
         e?.preventDefault()
@@ -17,7 +16,6 @@ function SetUpQuiz({ handleStepCompletion }: { handleStepCompletion: () => void 
     const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
         setPhrasesNum(Number(e?.target?.value))
     }
-    useEffect(() => { console.log(newPhrases) }), [newPhrases]
 
     return (<>
         <section className="quiz-setup-section">
