@@ -1,10 +1,13 @@
 import { Stepper } from "../../components/stepper"
+import { NewPhrasesProvider } from "../../context/newPhrases"
 
 function LearnPage() {
     return (
         <>
             <main>
-                <Stepper />
+                <NewPhrasesProvider>
+                    <Stepper />
+                </NewPhrasesProvider>
             </main>
         </>
     )
