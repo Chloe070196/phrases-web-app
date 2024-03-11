@@ -1,0 +1,41 @@
+.questionGap {
+  display: inline-block;
+  background-color: var(--dark-transparent);
+  background: linear-gradient(
+    0.5turn,
+    var(--light-transparent),
+    var(--light-semi-transparent)
+  );
+  color: white;
+  font-weight: bold;
+  min-width: 120px;
+  height: 42px;
+  padding: 0 16px;
+  border-radius: var(--unit);
+  border: 2px solid white;
+  color: var(--darkblue);
+}
+
+.questionContext {
+  display: inline-block;
+  line-height: 42px;
+  align-content: center;
+  color: var(--darkblue);
+}
+
+.quizQuestion {
+  place-self: center;
+  position: relative;
+}
+
+select {
+  background-color: var(--light-semi-transparent);
+  color: var(--dark-slightly-transparent);
+  border-radius: var(--unit);
+  height: 42px;
+  font-weight: bold;
+}
+
+::selection {
+  background: black;
+}
