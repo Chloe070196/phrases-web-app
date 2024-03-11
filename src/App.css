@@ -9,7 +9,8 @@
   --four-units: 16px;
   --light-transparent: rgba(255, 253, 253, 0.281);
   --light-semi-transparent: rgba(255, 253, 253, 0.582);
-  --dark-transparent: rgba(54, 54, 54, 0.281);
+  --dark-transparent: rgba(54, 54, 54, 0.1);
+  --dark-almost-transparent: rgba(54, 54, 54, 0.281);
   --dark-semi-transparent: rgba(36, 36, 36, 0.507);
   --dark-slightly-transparent: rgba(36, 36, 36, 0.75);
   --grey: rgba(107, 107, 107, 0.945);
@@ -23,6 +24,7 @@
 
 main {
   position: fixed;
+  display: grid;
   left: 200px;
   top: 0;
   width: calc(100vw - 160px);
@@ -126,6 +128,39 @@ button,
 label {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--grey);
+  width: fit-content;
+  height: fit-content;
+  padding: var(--unit);
+}
+
+button {
+  display: grid;
+  width: 84px;
+  color: var(--darkblue);
+  font-weight: bold;
+  font-variant: small-caps;
+  border: 2px solid white;
+}
+
+button:hover {
+  background: linear-gradient(
+    0.6turn,
+    var(--dark-transparent),
+    var(--darkblue-semi-transparent),
+    var(--darkblue)
+  );
+  color: white;
+  box-shadow: -1px 1px 4px 1px var(--dark-semi-transparent);
+}
+button:focus {
+  background-color: var(--darkblue);
+  color: white;
+}
+
+.bottom-right-button {
+  position: absolute;
+  bottom: var(--four-units);
+  right: var(--four-units);
 }
 
 strong {
