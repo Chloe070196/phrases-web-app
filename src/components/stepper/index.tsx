@@ -5,19 +5,22 @@ import { PhraseType } from "../../types"
 
 function Stepper() {
     const [currentStep, setCurrentStep] = useState<string | null>("0")
+    const [canProceed, setCanProceed] = useState(false)
     const [newPhrases, setNewPhrases] = useState<Array<PhraseType> | null>(null)
 
     const handleStepCompletion = async () => {
+        if (!canProceed) {
+            return
+        }
         const newStep = Number(currentStep) + 1
         localStorage.setItem("currentQuizStep", `${newStep}`)
         setCurrentStep(`${newStep}`)
+        setCanProceed(false)
     }
-
     const resetQuiz = () => {
         localStorage.setItem("currentQuizStep", "0")
         setCurrentStep("0")
     }
-
     const handlePageReload = () => {
         const storedStep = localStorage.getItem("currentQuizStep")
         if (!storedStep) {
@@ -33,7 +36,7 @@ function Stepper() {
     if (currentStep === "0") {
         return (
             <>
-                <SetUpQuiz setNewPhrases={setNewPhrases} handleStepCompletion={handleStepCompletion} />
+                <SetUpQuiz setNewPhrases={setNewPhrases} handleStepCompletion={handleStepCompletion} setCanProceed={setCanProceed} />
             </>
         )
     }
@@ -42,9 +45,10 @@ function Stepper() {
         const i = Number(currentStep) - 1
         return (
             <>
-                <QuizQuestion newPhrase={newPhrases[i]} />
-                <button onClick={handleStepCompletion}>next</button>
-                <button onClick={resetQuiz}>re-start</button>
+                <QuizQuestion canProceed={canProceed} setCanProceed={setCanProceed} newPhrase={newPhrases[i]} >
+                    <button className="bottom-right-button" onClick={handleStepCompletion}>next</button>
+                </QuizQuestion>
+                <button onClick={resetQuiz}>restart</button>
             </>
         )
     }
