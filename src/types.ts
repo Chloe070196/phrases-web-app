@@ -11,4 +11,12 @@ type AuthContextType = {
   setUser: (user: UserType | null) => void;
 };
 
-export type { PhraseType, UserType, AuthContextType };
+type NewPhrasesContextType = {
+  newPhrases: Array<PhraseType> | null;
+  setNewPhrases: (newPhrases: Array<PhraseType> | null) => void;
+  optionList: Array<string> | null;
+  setOptionList: (optionList: Array<string> | null) => void;
+};
+
+
+export type { PhraseType, UserType, AuthContextType, NewPhrasesContextType };
