@@ -6,7 +6,7 @@ function LeftAside() {
     return (
         <>
             <aside>
-                <nav className="grid-rows-four">
+                <nav>
                     <Link className="page-link" to="/"><h3>Home</h3></Link>
                     <Link className="page-link" to="/learn"><h3>Learn</h3></Link>
                     <Link className="page-link" to="/revise"><h3>Revise</h3></Link>

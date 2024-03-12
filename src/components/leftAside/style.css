@@ -3,13 +3,14 @@ aside {
   left: 0;
   top: 0;
   height: 100vh;
-  width: 160px;
+  width: 220px;
   border-right: 1px solid white;
-  background-color: white;
+  background-color: var(--light-semi-transparent);
+  box-shadow: 8px 0 4px -4px var(--dark-transparent);
 }
 
 .page-link:hover {
-  padding-right: 52px;
+  padding-right: 82px;
   background: linear-gradient(
     0.25turn,
     var(--dark-transparent),
@@ -19,7 +20,7 @@ aside {
   color: white;
 }
 .page-link:focus {
-  padding-right: 52px;
+  padding-right: 82px;
   background-color: var(--darkblue);
   color: white;
 }
@@ -30,25 +31,20 @@ aside {
   text-decoration: none;
   place-self: start;
   text-align: center;
-  width: 84px;
+  margin: var(--four-units) 0;
+  width: 70px;
   color: var(--darkblue);
-  background-color: rgba(221, 221, 221, 0.212);
   border-left: 4px solid rgb(255, 196, 0);
 }
 
 nav {
   position: absolute;
   top: var(--four-units);
-  width: 128px;
-  padding: 0 var(--four-units);
-  background: linear-gradient(
-    0.25turn,
-    rgba(255, 255, 255, 0),
-    var(--light-transparent),
-    var(--light-semi-transparent), 
-    white
-  );
-  height: 380px;
+  left: var(--four-units);
+  width: 160px;
+  background-color: var(--light-semi-transparent);
+  height: 432px;
+  box-shadow: 8px 8px 4px -4px var(--dark-transparent);
 }
 
 .left-aside-bottom-half {
@@ -56,6 +52,5 @@ nav {
   bottom: 0;
   left: 0;
   height: calc(100vh - 400px);
-  background-color: var(--darkblue);
   width: 100%;
 }
