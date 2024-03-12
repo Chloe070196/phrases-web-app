@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { SetUpQuiz } from "../setup-quiz"
-import { QuizQuestion } from "../quiz-question"
+import { SetUpQuiz } from "../setupQuiz"
+import { QuizQuestion } from "../quizQuestion"
 import { PhraseType } from "../../types"
 
 function Stepper() {
@@ -54,7 +54,8 @@ function Stepper() {
     }
     return (
         <>
-            <button onClick={resetQuiz}>exit</button>
+            <h2>Well done!</h2>
+            <button onClick={resetQuiz}>reset</button>
         </>
     )
 }

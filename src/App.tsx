@@ -7,7 +7,7 @@ import { PracticePage } from './pages/practice'
 import { LearnPage } from './pages/learn'
 import { RevisePage } from './pages/revise'
 import { Settings } from './pages/settings'
-import { LeftAside } from './components/left-aside'
+import { LeftAside } from './components/leftAside'
 import { AuthProvider} from './context/auth'
 
 function App() {

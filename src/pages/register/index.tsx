@@ -1,5 +1,5 @@
-import { FormHeader } from "../../components/form-header"
-import { RegistrationForm } from "../../components/registration-form"
+import { FormHeader } from "../../components/formHeader"
+import { RegistrationForm } from "../../components/registrationForm"
 
 function Register() {
     return (

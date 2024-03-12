@@ -28,7 +28,7 @@ function LogInForm() {
             alert('incorrect username/password')
             return
         }
-        onLogIn({ username: response?.username, token: response?.token })
+        onLogIn({id: response.id, username: response?.username, token: response?.token })
         navigate("/")
         return response
     }

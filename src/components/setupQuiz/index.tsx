@@ -20,7 +20,7 @@ function SetUpQuiz({ handleStepCompletion, setNewPhrases, setCanProceed }: { han
     }
 
     return (<>
-        <section className="quiz-setup-section">
+        <section className="centered-section-position section-colors small-section-dimensions">
             <h2>Learn new phrases</h2>
             <form onSubmit={handleStart}>
                 <label>Number of new phrases : {' '}

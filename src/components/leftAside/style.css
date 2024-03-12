@@ -2,20 +2,14 @@ aside {
   position: fixed;
   left: 0;
   top: 0;
-  height: calc(100vh - var(--four-units) * 2);
-  width: 128px;
-  padding: var(--four-units);
+  height: 100vh;
+  width: 160px;
   border-right: 1px solid white;
-  background: linear-gradient(
-    0.25turn,
-    rgba(255, 255, 255, 0),
-    var(--light-transparent),
-    var(--light-semi-transparent)
-  );
+  background-color: white;
 }
 
 .page-link:hover {
-  padding-right: 44px;
+  padding-right: 52px;
   background: linear-gradient(
     0.25turn,
     var(--dark-transparent),
@@ -25,7 +19,7 @@ aside {
   color: white;
 }
 .page-link:focus {
-  padding-right: 44px;
+  padding-right: 52px;
   background-color: var(--darkblue);
   color: white;
 }
@@ -35,20 +29,33 @@ aside {
   text-align: start;
   text-decoration: none;
   place-self: start;
+  text-align: center;
   width: 84px;
   color: var(--darkblue);
-}
-
-.page-link > h3 {
-  padding-left: var(--four-units);
+  background-color: rgba(221, 221, 221, 0.212);
+  border-left: 4px solid rgb(255, 196, 0);
 }
 
 nav {
+  position: absolute;
+  top: var(--four-units);
   width: 128px;
+  padding: 0 var(--four-units);
   background: linear-gradient(
     0.25turn,
     rgba(255, 255, 255, 0),
     var(--light-transparent),
-    var(--light-semi-transparent)
+    var(--light-semi-transparent), 
+    white
   );
+  height: 380px;
+}
+
+.left-aside-bottom-half {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: calc(100vh - 400px);
+  background-color: var(--darkblue);
+  width: 100%;
 }
