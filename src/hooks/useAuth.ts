@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/auth";
 import { UserType } from "../types";
+import { useNavigate } from "react-router-dom";
 
 const useAuth = () => {
   const { setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const onLogIn = (user: UserType) => {
     if (user.token) {
@@ -14,6 +16,7 @@ const useAuth = () => {
   const onLogOut = () => {
     localStorage.removeItem("jwt");
     setUser(null);
+    navigate("/login")
   };
 
   const checkLogIn = () => {
