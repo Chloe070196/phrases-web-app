@@ -1,5 +1,4 @@
-import { PhraseType, UserType } from "../types";
-
+import { NewUserPhraseType, PhraseType, UserPhraseType, UserType } from "../types";
 const rootUrl = import.meta.env.VITE_API_URL;
 
 const request = async (
@@ -37,20 +36,31 @@ const registerNewUser = async (data: object): Promise<Response> => {
   return responseData;
 };
 
-const logIn = async (
-  data: object
-): Promise<UserType> => {
+const logIn = async (data: object): Promise<UserType> => {
   const response = await post("/login", data);
   return await response.json();
 };
 
-const getPhrases = async (phrasesNum: number | null): Promise<Array<PhraseType>> => {
+const getPhrases = async (
+  phrasesNum: number | null
+): Promise<Array<PhraseType>> => {
   if (phrasesNum) {
-      const response = await get(`/phrases?phrases_num=${phrasesNum}`)
-      return await response.json()
-    }
-    const response = await get("/phrases");
+    const response = await get(`/phrases?phrases_num=${phrasesNum}`);
     return await response.json();
+  }
+  const response = await get("/phrases");
+  return await response.json();
 };
 
-export { registerNewUser, logIn, getPhrases};
+const getUserPhrases = async (
+): Promise<Array<UserPhraseType>> => {
+  const response = await get("/userphrases");
+  return await response.json();
+};
+
+
+const postUserPhrase = async (newUserPhrase: NewUserPhraseType): Promise<UserPhraseType> => {
+  const response = await post('/userphrases', newUserPhrase)
+  return await response.json()
+}
+export { registerNewUser, logIn, getPhrases, postUserPhrase, getUserPhrases };
