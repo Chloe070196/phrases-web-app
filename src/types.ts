@@ -1,9 +1,33 @@
-type PhraseType = { content: string; meaning: string; example: string, shortExample?: string };
+type PhraseType = {
+  id?:number;
+  content: string;
+  meaning: string;
+  example: string;
+  shortExample?: string;
+};
 
 type UserType = {
   id?: string;
   username?: string;
   token?: string;
+};
+
+type NewUserPhraseType = {
+  phraseId: number;
+  userId: number;
+  status: string;
+  timesAttempted: number;
+  timesSeen: number;
+  timesUsed: number;
+};
+
+type UserPhraseType = {
+  phrase: PhraseType;
+  user: {username: string};
+  status: string;
+  timesAttempted: number;
+  timesSeen: number;
+  timesUsed: number;
 };
 
 type AuthContextType = {
@@ -18,5 +42,11 @@ type NewPhrasesContextType = {
   setOptionList: (optionList: Array<string> | null) => void;
 };
 
-
-export type { PhraseType, UserType, AuthContextType, NewPhrasesContextType };
+export type {
+  PhraseType,
+  UserType,
+  AuthContextType,
+  NewPhrasesContextType,
+  UserPhraseType,
+  NewUserPhraseType
+};
