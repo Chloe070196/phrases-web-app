@@ -1,8 +1,15 @@
 import { Link } from "react-router-dom"
 import "./style.css"
 import { LogOutButton } from "../logoutButton"
+import { useAuth } from "../../hooks/useAuth"
 
 function LeftAside() {
+    const { checkLogIn } = useAuth()
+    const isLoggedIn = checkLogIn()
+
+    if (! isLoggedIn) {
+        return (<></>)
+    }
     return (
         <>
             <aside>
