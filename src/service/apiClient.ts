@@ -9,65 +9,71 @@ const rootUrl = import.meta.env.VITE_API_URL;
 const request = async (
   endpoint: string,
   method: string,
+  auth: boolean,
   data: object | null = null
 ): Promise<Response> => {
   const url = rootUrl + endpoint;
+  const jwt = localStorage.getItem('jwt')
+
+  const headers = new Headers()
+  headers.set("Content-Type", "application/json");
   const options: RequestInit = {
     method: method,
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers,
   };
   if (data) {
     options.body = JSON.stringify(data);
   }
-
+  if (auth && headers) {
+    headers.set('Authorization', `Bearer ${jwt}`);
+  }
+  
   return await fetch(url, options);
 };
 
-const get = async (endpoint: string): Promise<Response> => {
+const get = async (endpoint: string, auth = false): Promise<Response> => {
   const method = "GET";
-  return await request(endpoint, method);
+  return await request(endpoint, method, auth);
 };
 
-const post = async (endpoint: string, data: object): Promise<Response> => {
+const post = async (endpoint: string, auth = false, data: object, ): Promise<Response> => {
   const method = "POST";
-  return await request(endpoint, method, data);
+  return await request(endpoint, method, auth, data);
 };
 
 const registerNewUser = async (data: object): Promise<Response> => {
-  const response = await post("/register", data);
+  const response = await post("/register", false, data);
   const responseData = await response.json();
   return responseData;
 };
 
 const logIn = async (data: object): Promise<UserType> => {
-  const response = await post("/login", data);
+  const response = await post("/login", false, data);
   return await response.json();
 };
 
 const getPhrases = async (
   phrasesNum?: number | null
-): Promise<Array<PhraseType>> => {
-  if (phrasesNum) {
-    const response = await get(`/phrases?phrases_num=${phrasesNum}`);
+  ): Promise<Array<PhraseType>> => {
+    if (phrasesNum) {
+      const response = await get(`/phrases?phrases_num=${phrasesNum}`, true);
     return await response.json();
   }
-  const response = await get("/phrases");
+  const response = await get("/phrases", true);
   return await response.json();
 };
 
 const getUserPhrases = async (
   userId: number
 ): Promise<Array<UserPhraseType>> => {
-  const response = await get(`/userphrases/${userId}`);
+  const response = await get(`/userphrases/${userId}`, true);
   return await response.json();
 };
 
 const postUserPhrase = async (
   newUserPhrase: NewUserPhraseType
 ): Promise<UserPhraseType> => {
-  const response = await post("/userphrases", newUserPhrase);
+  const response = await post("/userphrases", true, newUserPhrase);
   return await response.json();
 };
 export { registerNewUser, logIn, getPhrases, postUserPhrase, getUserPhrases };
