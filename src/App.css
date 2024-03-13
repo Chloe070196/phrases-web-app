@@ -253,28 +253,34 @@ li {
 }
 
 .scrollable-wrapper {
-  height: 600px;
-  scroll-behavior: smooth;
+  height: 480px;
+  width: fit-content;
+  position: relative;
   overflow-y: scroll;
+  scroll-behavior: smooth;
   -ms-overflow-style: none;  
   scrollbar-width: none;
-  padding: var(--double-unit);
-  margin-top: var(--four-units);
 }
-
-.section-top-blur-wrapper {
-  position: relative;
-}
-
 .scrollable-wrapper::-webkit-scrollbar {
+  position: relative;
   display: none;
+}
+
+.blurred-bottom-wrapper {
+  position: relative;
+  width: 422px;
+  height: 480px;
+  border: 2px solid white;
+  padding: var(--double-unit);
+  box-shadow: inset 0 12px 12px -12px black;
 }
 
 .blurred-element {
   backdrop-filter: blur(3px);
-  height: 60px;
-  width: 100%;
+  height: 200px;
+  width: 438px;
   position: absolute;
-  bottom: -4px;
+  bottom: 0;
   left: 0;
+  box-shadow: 0 -12px 12px -12px black;
 }

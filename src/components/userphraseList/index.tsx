@@ -5,7 +5,7 @@ function UserphraseList({ userphraseList }: { userphraseList: Array<UserPhraseTy
     if (userphraseList) {
         return (
             <>
-                <div className="section-top-blur-wrapper">
+                <section className="blurred-bottom-wrapper">
                     <section className="scrollable-wrapper">
                         <ul className="grid-rows-four scrollable">
                             {[userphraseList.map((userphrase: UserPhraseType, index: number) => (
@@ -13,8 +13,8 @@ function UserphraseList({ userphraseList }: { userphraseList: Array<UserPhraseTy
                             ))]}
                         </ul>
                     </section>
-                    <div className="blurred-element"></div>
-                </div>
+                        <div className="blurred-element"></div>
+                </section>
             </>
         )
     }
