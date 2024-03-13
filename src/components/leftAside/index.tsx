@@ -12,7 +12,7 @@ function LeftAside() {
     }
     return (
         <>
-            <aside>
+            <aside className="left-aside">
                 <nav>
                     <Link className="page-link" to="/"><h3>Home</h3></Link>
                     <Link className="page-link" to="/learn"><h3>Learn</h3></Link>
