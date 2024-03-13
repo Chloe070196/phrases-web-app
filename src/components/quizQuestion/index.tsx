@@ -4,29 +4,16 @@ import { GappedParagraph } from "../gappedParagraph"
 import "./style.css"
 import { NewPhrasesContext } from "../../context/newPhrases"
 import { useNewPhrases } from "../../hooks/useNewPhrases"
-import { postUserPhrase } from "../../service/apiClient"
 import { AuthContext } from "../../context/auth"
 
 function QuizQuestion({ newPhrase, setCanProceed, canProceed, children }: { newPhrase: PhraseType, setCanProceed: React.Dispatch<React.SetStateAction<boolean>>, canProceed: boolean, children: ReactElement | null }) {
     const [displayedOption, setDisplayedOption] = useState("____________")
     const [attemptCounter, setAttemptCounter] = useState(0)
     const { user } = useContext(AuthContext)
-    const optionList: Array<string> | null = useContext(NewPhrasesContext).optionList
+    const { optionList } = useContext(NewPhrasesContext)
+    const { saveNewUserPhrase } = useNewPhrases()
     const { checkAnswer } = useNewPhrases()
 
-    const saveNewUserPhrase = () => {
-        if (newPhrase.id && user?.id) {
-            const newUserPhrase = {
-                phraseId: newPhrase.id,
-                userId: Number(user.id),
-                timesSeen: 1,
-                timesAttempted: attemptCounter,
-                timesUsed: 0,
-                status: 'WIP'
-            }
-            return postUserPhrase(newUserPhrase)
-        }
-    }
     const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
         setDisplayedOption(e.target.value)
     }
@@ -37,7 +24,7 @@ function QuizQuestion({ newPhrase, setCanProceed, canProceed, children }: { newP
             return
         }
         setAttemptCounter(1 + attemptCounter)
-        saveNewUserPhrase()
+        saveNewUserPhrase(user, newPhrase, attemptCounter)
         setCanProceed(true)
     }
 
