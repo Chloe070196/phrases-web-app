@@ -22,7 +22,7 @@ const useNewPhrases = () => {
     return nOptions
   }
   
-  const checkAnswer = (displayedOption, newPhrase) => {
+  const checkAnswer = (displayedOption: string, newPhrase: PhraseType) => {
     return displayedOption === newPhrase.content.toLowerCase()
   }
 
