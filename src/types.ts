@@ -1,5 +1,6 @@
 type PhraseType = {
   id?:number;
+  category: string;
   content: string;
   meaning: string;
   example: string;

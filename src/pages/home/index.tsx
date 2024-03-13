@@ -22,6 +22,7 @@ function HomePage() {
 
     const mockDayPhrase = {
         content: "hit the nail on the head",
+        category: "",
         example: "He hit the nail on the head when he said this company needs more HR support.",
         meaning: "to describe exactly what is causing a situation or problem"
     }

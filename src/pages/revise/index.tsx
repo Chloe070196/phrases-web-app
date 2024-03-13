@@ -5,6 +5,7 @@ import { useAuth } from "../../hooks/useAuth"
 import { getUserPhrases } from "../../service/apiClient"
 import { UserPhraseType } from "../../types"
 import { useCallback, useContext, useEffect, useState } from "react"
+import { CategoryList } from "../../components/categoryList"
 
 function RevisePage() {
     const [userphraseList, setUserphraseList] = useState<Array<UserPhraseType> | null>(null)
@@ -18,23 +19,26 @@ function RevisePage() {
             navigate("/login")
         }
     }
-    
+
     const fetchUserPhrases = useCallback(async () => {
         if (user?.id) {
             const phrases = await getUserPhrases(Number(user.id))
             setUserphraseList(phrases)
         }
     }, [user])
-    
+
     useEffect(redirectToLogin)
     useEffect(() => { fetchUserPhrases() }, [fetchUserPhrases])
 
     if (userphraseList) {
         return (
             <>
-                <main>
-                    <h2>My phrases: </h2>
-                    <UserphraseList userphraseList={userphraseList} />
+                <main className="grid-cols-two revise-page" >
+                    <section>
+                        <h2>My phrases: </h2>
+                        <UserphraseList userphraseList={userphraseList} />
+                    </section>
+                    <CategoryList />
                 </main>
             </>
         )

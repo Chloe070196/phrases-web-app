@@ -52,6 +52,11 @@ const logIn = async (data: object): Promise<UserType> => {
   return await response.json();
 };
 
+const getAllCategories = async () => {
+  const response =  await get("/phrases/categories", false) 
+  return await response.json()
+}
+
 const getPhrases = async (
   phrasesNum?: number | null
   ): Promise<Array<PhraseType>> => {
@@ -76,4 +81,4 @@ const postUserPhrase = async (
   const response = await post("/userphrases", true, newUserPhrase);
   return await response.json();
 };
-export { registerNewUser, logIn, getPhrases, postUserPhrase, getUserPhrases };
+export { registerNewUser, logIn, getPhrases, postUserPhrase, getUserPhrases, getAllCategories };

@@ -1,0 +1,22 @@
+.category-list{
+    width: fit-content;
+    place-self: start;
+}
+
+.category-list-item{
+    display: grid;
+    grid-template-columns: 20px 340px;
+    padding: var(--four-units);
+}
+
+.category-list-item > input {
+    height: 21px;
+    width: 21px;
+    margin: 0;
+    place-self: center;
+}
+.category-list-item > strong {
+    pointer-events: none;
+    color: var(--darkblue);
+    font-size: 21px;
+}
