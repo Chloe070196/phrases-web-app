@@ -28,6 +28,15 @@
   position: relative;
 }
 
+.correct-answer {
+  background-color: rgba(0, 233, 50, 0.493);
+}
+.incorrect-answer {
+  background-color: rgba(255, 0, 0, 0.288);
+}
+.neutral {
+  background-color: var(--light-transparent);
+}
 select {
   background-color: var(--light-semi-transparent);
   color: var(--dark-slightly-transparent);

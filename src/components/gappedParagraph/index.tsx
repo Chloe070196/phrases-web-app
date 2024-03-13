@@ -1,6 +1,6 @@
 import { PhraseType } from "../../types"
 
-function GappedParagraph({ option, newPhrase }: { option: string, newPhrase: PhraseType }) {
+function GappedParagraph({ option, newPhrase, displayedOptionStyle }: { option: string, newPhrase: PhraseType, displayedOptionStyle: string }) {
     const { content, example } = newPhrase
     const gapIndex = example.toLowerCase().indexOf(content.toLowerCase())
     const textBeforeGap = example.slice(0, gapIndex)
@@ -8,7 +8,7 @@ function GappedParagraph({ option, newPhrase }: { option: string, newPhrase: Phr
 
     return (
         <>
-            <h3 className="questionContext">{textBeforeGap}<span className="questionGap">{option}</span>{textAfterGap}</h3>
+            <h3 className="questionContext">{textBeforeGap}<span className={`questionGap ${displayedOptionStyle}`}>{option}</span>{textAfterGap}</h3>
         </>
     )
 }

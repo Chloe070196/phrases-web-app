@@ -7,6 +7,8 @@ function Stepper() {
     const [currentStep, setCurrentStep] = useState<string | null>("0")
     const [canProceed, setCanProceed] = useState(false)
     const [newPhrases, setNewPhrases] = useState<Array<PhraseType> | null>(null)
+    const [displayedOptionStyle, setDisplayedOptionStyle] = useState("neutral")
+
 
     const handleStepCompletion = async () => {
         if (!canProceed) {
@@ -15,6 +17,7 @@ function Stepper() {
         const newStep = Number(currentStep) + 1
         localStorage.setItem("currentQuizStep", `${newStep}`)
         setCurrentStep(`${newStep}`)
+        setDisplayedOptionStyle("neutral")
         setCanProceed(false)
     }
     const resetQuiz = () => {
@@ -45,7 +48,7 @@ function Stepper() {
         const i = Number(currentStep) - 1
         return (
             <>
-                <QuizQuestion canProceed={canProceed} setCanProceed={setCanProceed} newPhrase={newPhrases[i]} >
+                <QuizQuestion canProceed={canProceed} setCanProceed={setCanProceed} newPhrase={newPhrases[i]} displayedOptionStyle={displayedOptionStyle} setDisplayedOptionStyle={setDisplayedOptionStyle}>
                     <button className="bottom-right-button" onClick={handleStepCompletion}>next</button>
                 </QuizQuestion>
                 <button onClick={resetQuiz}>restart</button>
