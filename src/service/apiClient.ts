@@ -47,7 +47,7 @@ const logIn = async (data: object): Promise<UserType> => {
 };
 
 const getPhrases = async (
-  phrasesNum: number | null
+  phrasesNum?: number | null
 ): Promise<Array<PhraseType>> => {
   if (phrasesNum) {
     const response = await get(`/phrases?phrases_num=${phrasesNum}`);
