@@ -20,7 +20,7 @@ function SetUpQuiz({ handleStepCompletion, setNewPhrases, setCanProceed }: { han
     }
 
     return (<>
-        <section className="centered-section-position section-colors small-section-dimensions">
+        <section className="centered-section-position section-colors small-section-dimensions background-classroom">
             <h2>Learn new phrases</h2>
             <form onSubmit={handleStart}>
                 <label>Number of new phrases : {' '}
@@ -30,7 +30,7 @@ function SetUpQuiz({ handleStepCompletion, setNewPhrases, setCanProceed }: { han
                         <option value="12">12</option>
                     </select>
                 </label>
-                <button type="submit">Start</button>
+                <button type="submit" className="bottom-right-button">Start</button>
             </form>
         </section>
     </>)

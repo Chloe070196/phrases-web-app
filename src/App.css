@@ -9,6 +9,7 @@
   --four-units: 16px;
   --light-transparent: rgba(255, 253, 253, 0.281);
   --light-semi-transparent: rgba(255, 253, 253, 0.582);
+  --light-slightly-transparent: rgba(255, 253, 253, 0.882);
   --dark-transparent: rgba(54, 54, 54, 0.1);
   --dark-almost-transparent: rgba(54, 54, 54, 0.281);
   --dark-semi-transparent: rgba(36, 36, 36, 0.507);
@@ -163,6 +164,7 @@ button {
   font-weight: bold;
   font-variant: small-caps;
   border: 2px solid white;
+  background-color: var(--light-semi-transparent);
 }
 
 button:hover {
@@ -213,13 +215,35 @@ li {
 .background-classroom {
   background-image: url("src/assets/photo-1585637071663-799845ad5212.avif");
   background-size: cover;
-  background-color: rgba(88, 65, 22, 0.644);
+  background-color: rgba(20, 17, 13, 0.767);
   background-blend-mode: darken;
   color: white;
 }
 
+.background-classroom h2 {
+  font-size: 30px;
+  margin: 8px 0;
+}
+
 .background-classroom label {
   color: white;
+  font-size: 20px;
+}
+
+.background-classroom select {
+  background-color: var(--light-slightly-transparent);
+  padding: 0 0 0 6px;
+  border-radius: 0;
+  font-size: 18px;
+  margin: var(--four-units);
+} 
+
+.daily-phrase-section {
+  display: grid;
+  background-color: var(--light-transparent);
+  place-content: center;
+  padding: 42px;
+  box-shadow: 8px 8px 4px -4px var(--dark-transparent);
 }
 /* SCROLL BEHAVIOR AND STYLING */
 
