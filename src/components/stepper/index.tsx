@@ -48,6 +48,10 @@ function Stepper() {
         const i = Number(currentStep) - 1
         return (
             <>
+                <header className="quiz-header">
+                    <h2>QUIZ: </h2>
+                    <h3>Phrase <span>{currentStep}</span> out of <span>{newPhrases.length}</span></h3>
+                </header>
                 <QuizQuestion canProceed={canProceed} setCanProceed={setCanProceed} newPhrase={newPhrases[i]} displayedOptionStyle={displayedOptionStyle} setDisplayedOptionStyle={setDisplayedOptionStyle}>
                     <button className="bottom-right-button" onClick={handleStepCompletion}>next</button>
                 </QuizQuestion>

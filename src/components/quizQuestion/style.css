@@ -26,6 +26,7 @@
 .quizQuestion {
   place-self: center;
   position: relative;
+  margin-top: 60px;
 }
 
 .correct-answer {
@@ -45,6 +46,26 @@ select {
   font-weight: bold;
 }
 
-::selection {
-  background: black;
+.quiz-header {
+  position: absolute;
+  top: 32px;
+  left: 42px;
+  display: inline-block;
+  height: 32px;
+  padding: var(--four-units);
+  width: fit-content;
+  background-color: var(--light-semi-transparent);
+  border-left: 8px solid rgba(255, 68, 0, 0.788);
+}
+
+.quiz-header h2,
+.quiz-header h3 {
+  display: inline;
+}
+
+.quiz-header span {
+  font-size: 24px;
+  color: rgb(0, 102, 255);
+  text-shadow: 2px 2px 1px rgb(182, 253, 255);
+  padding: 0 var(--unit);
 }
