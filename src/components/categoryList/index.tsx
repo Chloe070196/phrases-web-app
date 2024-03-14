@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react"
 import { getAllCategories } from "../../service/apiClient"
 import './style.css'
 
-function CategoryList() {
+function CategoryList({ setSelectedCategory }: { setSelectedCategory: React.Dispatch<React.SetStateAction<string>> }) {
     const [categories, setCategories] = useState<Array<{ category: string }> | null>(null)
 
     const retrieveCategoryList = useCallback(async () => {
@@ -15,14 +15,14 @@ function CategoryList() {
         <>
             <section>
                 <h2>Filter by...</h2>
-                <ul className="section-colors category-list">
-                    {categories && categories.map((item: { category: string }) => (
-                        <li className="category-list-item">
-                            <input type="checkbox" value={item.category} />
-                            <strong>{item.category}</strong>
-                        </li>
+                <select onChange={(e) => setSelectedCategory(e.target.value)} className="section-colors category-list">
+                    {categories && categories.map((item: { category: string }, index: number) => (
+                        <option className="category-list-item" key={'category' + index}>
+                            {item.category}
+                        </option>
                     ))}
-                </ul>
+                    <option>all</option>
+                </select>
             </section>
         </>
     )

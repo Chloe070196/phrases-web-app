@@ -75,10 +75,18 @@ const getUserPhrases = async (
   return await response.json();
 };
 
+const getUserPhrasesByCategory = async (
+  userId: number,
+  category: string
+): Promise<Array<UserPhraseType>> => {
+  const response = await get(`/userphrases/${userId}?category=${category}`, true);
+  return await response.json();
+};
+
 const postUserPhrase = async (
   newUserPhrase: NewUserPhraseType
 ): Promise<UserPhraseType> => {
   const response = await post("/userphrases", true, newUserPhrase);
   return await response.json();
 };
-export { registerNewUser, logIn, getPhrases, postUserPhrase, getUserPhrases, getAllCategories };
+export { registerNewUser, logIn, getPhrases, postUserPhrase, getUserPhrases, getAllCategories, getUserPhrasesByCategory };
