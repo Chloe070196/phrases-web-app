@@ -1,6 +1,7 @@
 import {
   NewUserPhraseType,
   PhraseType,
+  TextType,
   UserPhraseType,
   UserType,
 } from "../types";
@@ -89,4 +90,11 @@ const postUserPhrase = async (
   const response = await post("/userphrases", true, newUserPhrase);
   return await response.json();
 };
-export { registerNewUser, logIn, getPhrases, postUserPhrase, getUserPhrases, getAllCategories, getUserPhrasesByCategory };
+
+const postText = async (
+  text: TextType  
+): Promise<TextType> => {
+  const response = await post("/texts", true, text);
+  return await response.json();
+};
+export { registerNewUser, logIn, getPhrases, postUserPhrase, getUserPhrases, getAllCategories, getUserPhrasesByCategory, postText };
