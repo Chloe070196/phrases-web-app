@@ -1,0 +1,44 @@
+.practice-page {
+  display: grid;
+  grid-template-columns: 500px 1fr;
+}
+.sandbox-form {
+  position: relative;
+  display: grid;
+  width: 800px;
+  grid-template-columns: 1fr 6fr;
+}
+.sandox-checklist {
+  margin-left: var(--four-units);
+}
+.sandox-checklist label {
+  display: grid;
+  grid-template-columns: 26px 120px;
+  align-items: center;
+  justify-items: start;
+  padding-left: var(--double-unit);
+  gap: var(--double-unit);
+  background-color: var(--light-semi-transparent);
+  box-shadow: -14px 14px 12px -12px rgba(0, 0, 0, 0.322);
+}
+.sandox-checklist input {
+  width: 24px;
+  height: 24px;
+}
+.sandbox-area-wrapper {
+  display: grid;
+}
+.sandbox-area-wrapper > textarea {
+  display: grid;
+  width: 600px;
+  place-self: start;
+  height: 600px;
+  padding: var(--four-units); 
+}
+
+#practice-area::placeholder,
+#practice-area {
+  line-height: 32px;
+  font-size: 22px;
+}
+

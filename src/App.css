@@ -104,20 +104,8 @@ input {
   width: 240px;
 }
 
-textarea {
-  width: 800px;
-  height: 600px;
-  padding: var(--four-units); 
-}
-
 ::placeholder {
   color: var(--dark-semi-transparent);
-}
-
-#practice-area::placeholder,
-#practice-area {
-  line-height: 32px;
-  font-size: 22px;
 }
 
 .submit-button {
