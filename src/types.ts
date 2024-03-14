@@ -31,6 +31,13 @@ type UserPhraseType = {
   timesUsed: number;
 };
 
+type TextType = {
+  id?: number;
+  content: string;
+  userId: number;
+  userPhraseId?: Array<number>;
+}
+
 type AuthContextType = {
   user: UserType | null;
   setUser: (user: UserType | null) => void;
@@ -49,5 +56,6 @@ export type {
   AuthContextType,
   NewPhrasesContextType,
   UserPhraseType,
-  NewUserPhraseType
+  NewUserPhraseType,
+  TextType,
 };
