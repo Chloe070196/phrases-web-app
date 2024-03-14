@@ -1,27 +1,58 @@
-import { PhraseType } from "../../types"
-import { getPhrases } from "../../service/apiClient"
-import { useCallback, useEffect, useState } from "react"
-import { PhraseList } from "../phraseList"
+import { useNavigate } from "react-router-dom"
+import { UserphraseList } from "../../components/userphraseList"
+import { AuthContext } from "../../context/auth"
+import { useAuth } from "../../hooks/useAuth"
+import { getUserPhrases, getUserPhrasesByCategory } from "../../service/apiClient"
+import { UserPhraseType } from "../../types"
+import { useCallback, useContext, useEffect, useState } from "react"
+import { CategoryList } from "../../components/categoryList"
 
-function MyPhrases() {
-    const [phraseList, setPhraseList] = useState<Array<PhraseType> | null>(null)
+function UserphraseSection() {
+    const [userphraseList, setUserphraseList] = useState<Array<UserPhraseType> | null>(null)
+    const [selectedCategory, setSelectedCategory] = useState<string>("all")
+    const { user } = useContext(AuthContext)
+    const { checkLogIn } = useAuth()
+    const navigate = useNavigate()
 
-    const renderPhrases = useCallback(async () => {
-        const phrases = await getPhrases()
-        setPhraseList(phrases)
-    }, [])
+    const redirectToLogin = () => {
+        const isLoggedIn = checkLogIn()
+        if (!isLoggedIn) {
+            navigate("/login")
+        }
+    }
 
-    useEffect(() => { renderPhrases() }, [renderPhrases])
+    const fetchUserPhrases = useCallback(async () => {
+        if (!user?.id) {
+            return
+        }
+        if (selectedCategory === "all") {
+            const phrases = await getUserPhrases(Number(user.id))
+            setUserphraseList(phrases)
+            return
+        }
+        const phrases = await getUserPhrasesByCategory(Number(user.id), selectedCategory)
+        setUserphraseList(phrases)
+        return
+    }, [user, selectedCategory])
 
-    if (phraseList) {
+    useEffect(redirectToLogin)
+    useEffect(() => { fetchUserPhrases() }, [fetchUserPhrases])
+
+    if (userphraseList) {
         return (
             <>
-                <PhraseList phraseList={phraseList} />
+                <section >
+                    <CategoryList setSelectedCategory={setSelectedCategory} />
+                    <section>
+                        <h2>My phrases: </h2>
+                        <UserphraseList userphraseList={userphraseList} />
+                    </section>
+                </section>
             </>
         )
     }
     return (<></>)
-
 }
 
-export { MyPhrases }
+export { UserphraseSection }
+

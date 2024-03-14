@@ -29,9 +29,10 @@ main {
   left: 250px;
   padding-left: 40px;
   top: 0;
-  width: calc(100vw - 290px);
-  height: 100vh;
+  width: calc(100vw - 330px);
+  height: calc(100vh - 8vh);
   background-color: var(--light-transparent);
+  padding: 4vh 40px;
 }
 
 .centered-content {
@@ -78,7 +79,6 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--double-unit);
-  width: fit-content;
 }
 
 .grid-rows-four {
@@ -104,8 +104,20 @@ input {
   width: 240px;
 }
 
+textarea {
+  width: 800px;
+  height: 600px;
+  padding: var(--four-units); 
+}
+
 ::placeholder {
   color: var(--dark-semi-transparent);
+}
+
+#practice-area::placeholder,
+#practice-area {
+  line-height: 32px;
+  font-size: 22px;
 }
 
 .submit-button {
@@ -244,11 +256,6 @@ li {
   place-content: center;
   padding: 42px;
   box-shadow: 8px 8px 4px -4px var(--dark-transparent);
-}
-
-.revise-page{
-  width: calc(100vw - 410px);
-  padding: 80px;
 }
 
 /* SCROLL BEHAVIOR AND STYLING */
