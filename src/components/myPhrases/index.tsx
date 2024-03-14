@@ -7,8 +7,7 @@ import { UserPhraseType } from "../../types"
 import { useCallback, useContext, useEffect, useState } from "react"
 import { CategoryList } from "../../components/categoryList"
 
-function UserphraseSection() {
-    const [userphraseList, setUserphraseList] = useState<Array<UserPhraseType> | null>(null)
+function UserphraseSection({userphraseList, setUserphraseList}: {userphraseList: Array<UserPhraseType> | null, setUserphraseList: React.Dispatch<React.SetStateAction<Array<UserPhraseType> | null>>}) {
     const [selectedCategory, setSelectedCategory] = useState<string>("all")
     const { user } = useContext(AuthContext)
     const { checkLogIn } = useAuth()
