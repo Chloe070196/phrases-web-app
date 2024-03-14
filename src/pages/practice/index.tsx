@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../hooks/useAuth"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { UserphraseSection } from "../../components/myPhrases"
+import { SandboxSection } from "../../components/sandboxSection"
+import { UserPhraseType } from "../../types"
+import './style.css'
 
 function PracticePage() {
+    const [userphraseList, setUserphraseList] = useState<Array<UserPhraseType> | null>(null)
     const { checkLogIn } = useAuth()
     const navigate = useNavigate()
 
@@ -16,15 +20,9 @@ function PracticePage() {
     useEffect(redirectToLogin)
     return (
         <>
-            <main className="grid-cols-two">
-                    <UserphraseSection />
-                <section>
-                    <h2>Sandbox</h2>
-                    <h3>Practice using the phrases you've learnt!</h3>
-                    <h3>Scroll through the list, and jot down the anecdotes or ideas that come to mind</h3>
-                    <textarea className="section-colors" id="practice-area" placeholder="EXAMPLE: I had to grab the bull by the horns the other day when..."/>
-                    <button className="bottom-right-button">Save</button>
-                </section>
+            <main className="practice-page">
+                <UserphraseSection userphraseList={userphraseList} setUserphraseList={setUserphraseList}/>
+                <SandboxSection userphraseList={userphraseList}/>
             </main>
         </>
     )
