@@ -5,7 +5,7 @@ To see a walkthrough of the features I've implemented, have a look at my [dedica
 And if you'd like to get in touch, I can be reached via [LinkedIn](www.linkedin.com/in/chloé-z-77b1a2184)
 
 ## API
-The backend server can be found (here)[https://github.com/Chloe070196/phrases-app-API].
+The backend server can be found [here](https://github.com/Chloe070196/phrases-app-API).
 
 ## Demo link
 Coming soon!
