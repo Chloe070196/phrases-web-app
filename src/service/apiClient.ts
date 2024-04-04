@@ -20,7 +20,6 @@ const request = async (
   headers.set("Content-Type", "application/json");
   const options: RequestInit = {
     method: method,
-    credentials: "include",
     headers,
   };
   if (data) {
