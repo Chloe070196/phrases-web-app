@@ -20,6 +20,7 @@ const request = async (
   headers.set("Content-Type", "application/json");
   const options: RequestInit = {
     method: method,
+    credentials: "include",
     headers,
   };
   if (data) {
@@ -27,9 +28,7 @@ const request = async (
   }
   if (auth && headers) {
     headers.set('Authorization', `Bearer ${jwt}`);
-    options.credentials = "include";
-  }
-  
+  }  
   const response =  await fetch(url, options);
   return response
 };
