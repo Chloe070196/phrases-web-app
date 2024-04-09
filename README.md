@@ -8,4 +8,7 @@ And if you'd like to get in touch, I can be reached via [LinkedIn](https://www.l
 The backend server can be found [here](https://github.com/Chloe070196/phrases-app-API).
 
 ## Demo link
-Coming soon!
+
+(https://english-phrases-learning-app.vercel.app/)[https://english-phrases-learning-app.vercel.app/]
+
+Feel free to quickly create an account to test it out, or use the following demo credentials to log in: email: `demo@email.com`, password: `demo`. 
