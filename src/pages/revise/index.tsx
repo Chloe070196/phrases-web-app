@@ -11,7 +11,7 @@ function RevisePage() {
     const [userphraseList, setUserphraseList] = useState<Array<UserPhraseType> | null>(null)
     const [selectedCategory, setSelectedCategory] = useState<string>("all")
     const { user } = useContext(AuthContext)
-    const { checkLogIn } = useAuth()
+    const { checkLogIn, onPageReload } = useAuth()
     const navigate = useNavigate()
 
     const redirectToLogin = () => {
@@ -20,6 +20,11 @@ function RevisePage() {
             navigate("/login")
         }
     }
+    
+    const handlePageReload = () => {
+        onPageReload()
+    }
+    useEffect(handlePageReload, [])
 
     const fetchUserPhrases = useCallback(async () => {
         if (!user?.id) {
@@ -43,10 +48,16 @@ function RevisePage() {
             <>
                 <main className="grid-cols-two revise-page" >
                     <section>
+                        <section>
                         <h2>My phrases: </h2>
-                        <UserphraseList userphraseList={userphraseList} />
+                            <UserphraseList userphraseList={userphraseList} />
+                        </section>
+                        <CategoryList setSelectedCategory={setSelectedCategory} />
                     </section>
-                    <CategoryList setSelectedCategory={setSelectedCategory} />
+                    <section>
+                        <h2>My texts: </h2>
+                        <p>coming soon!</p>
+                    </section>
                 </main>
             </>
         )

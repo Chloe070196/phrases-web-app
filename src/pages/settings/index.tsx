@@ -3,7 +3,7 @@ import { useAuth } from "../../hooks/useAuth"
 import { useEffect } from "react"
 
 function Settings() {
-    const { checkLogIn } = useAuth()
+    const { checkLogIn, onPageReload } = useAuth()
     const navigate = useNavigate()
 
     const redirectToLogin = () => {
@@ -12,6 +12,11 @@ function Settings() {
             navigate("/login")
         }
     }
+    
+    const handlePageReload = () => {
+        onPageReload()
+    }
+    useEffect(handlePageReload, [])
     useEffect(redirectToLogin)
     return (
         <>

@@ -9,7 +9,7 @@ const phrasesNum = 34
 
 function HomePage() {
     const context = useContext(AuthContext)
-    const { checkLogIn } = useAuth()
+    const { checkLogIn, onPageReload } = useAuth()
     const navigate = useNavigate()
 
     const redirectToLogin = () => {
@@ -18,6 +18,11 @@ function HomePage() {
             navigate("/login")
         }
     }
+
+    const handlePageReload = () => {
+        onPageReload()
+    }
+    useEffect(handlePageReload, [])
     useEffect(redirectToLogin)
 
     const mockDayPhrase = {

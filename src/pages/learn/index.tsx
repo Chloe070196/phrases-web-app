@@ -5,7 +5,7 @@ import { useAuth } from "../../hooks/useAuth"
 import { useEffect } from "react"
 
 function LearnPage() {
-    const { checkLogIn } = useAuth()
+    const { checkLogIn, onPageReload } = useAuth()
     const navigate = useNavigate()
 
     const redirectToLogin = () => {
@@ -14,6 +14,11 @@ function LearnPage() {
             navigate("/login")
         }
     }
+    
+    const handlePageReload = () => {
+        onPageReload()
+    }
+    useEffect(handlePageReload, [])
     useEffect(redirectToLogin)
     return (
         <>

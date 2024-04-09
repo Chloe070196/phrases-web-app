@@ -8,7 +8,7 @@ import './style.css'
 
 function PracticePage() {
     const [userphraseList, setUserphraseList] = useState<Array<UserPhraseType> | null>(null)
-    const { checkLogIn } = useAuth()
+    const { checkLogIn, onPageReload } = useAuth()
     const navigate = useNavigate()
 
     const redirectToLogin = () => {
@@ -17,6 +17,10 @@ function PracticePage() {
             navigate("/login")
         }
     }
+    const handlePageReload = () => {
+        onPageReload()
+    }
+    useEffect(handlePageReload, [])
     useEffect(redirectToLogin)
     return (
         <>

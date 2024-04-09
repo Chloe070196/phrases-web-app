@@ -11,6 +11,11 @@ const useAuth = () => {
     if (user.token) {
       localStorage.setItem("jwt", user?.token);
       setUser(user);
+      if (!user.id || !user.username) {
+        throw new Error('error when completing log in: no username added')
+      }
+      localStorage.setItem('userId', user.id)
+      localStorage.setItem('username', user.username)
     }
   };
   const onLogOut = () => {
@@ -24,6 +29,14 @@ const useAuth = () => {
     return !!jwt;
   };
 
-  return { checkLogIn, onLogIn, onLogOut };
+  const onPageReload = () => {
+    const userId = localStorage.getItem("userId");
+    const username = localStorage.getItem("userId");
+    if (userId && username) {
+      setUser({id:userId, username})
+    }
+  }
+
+  return { checkLogIn, onLogIn, onLogOut, onPageReload };
 };
 export { useAuth };
