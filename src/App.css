@@ -35,6 +35,9 @@ main {
   padding: 4vh 40px;
 }
 
+h3 {
+  padding-left: 12px;
+}
 .centered-content {
   position: relative;
   place-content: center;
@@ -213,7 +216,7 @@ li {
 }
 
 .background-classroom {
-  background-image: url("src/assets/photo-1585637071663-799845ad5212.avif");
+  background-image: url("./assets/photo-1585637071663-799845ad5212.avif");
   background-size: cover;
   background-color: rgba(20, 17, 13, 0.767);
   background-blend-mode: darken;
