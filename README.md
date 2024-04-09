@@ -9,6 +9,6 @@ The backend server can be found [here](https://github.com/Chloe070196/phrases-ap
 
 ## Demo link
 
-(https://english-phrases-learning-app.vercel.app/)[https://english-phrases-learning-app.vercel.app/]
+[https://english-phrases-learning-app.vercel.app/](https://english-phrases-learning-app.vercel.app/)
 
 Feel free to quickly create an account to test it out, or use the following demo credentials to log in: email: `demo@email.com`, password: `demo`. 
