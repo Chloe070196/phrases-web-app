@@ -31,7 +31,7 @@ const useAuth = () => {
 
   const onPageReload = () => {
     const userId = localStorage.getItem("userId");
-    const username = localStorage.getItem("userId");
+    const username = localStorage.getItem("username");
     if (userId && username) {
       setUser({id:userId, username})
     }
